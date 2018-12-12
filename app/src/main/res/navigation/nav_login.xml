@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@id/fragment_log_in_cpf">
+    <fragment
+            android:id="@+id/fragment_log_in_cpf"
+            android:name="com.carvalho.marcio.listinfo.ui.features.login.LoginCPFFragment"
+            android:label=""
+            tools:layout="@layout/fragment_log_in_cpf">
+        <action
+                android:id="@+id/actionCpfToPassword"
+                app:destination="@id/fragment_password"
+                app:enterAnim="@anim/slide_in"
+                app:exitAnim="@anim/slide_out"
+                app:popEnterAnim="@anim/slide_pop_out"
+                app:popExitAnim="@anim/slide_pop_in"
+                app:popUpTo="@+id/actionCpfToPassword" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_password"
+            android:name="com.carvalho.marcio.listinfo.ui.features.login.LoginPasswordFragment"
+            android:label=""
+            tools:layout="@layout/fragment_log_in_password">
+        <argument
+                android:name="cpf"
+                app:argType="string" />
+    </fragment>
+</navigation>
