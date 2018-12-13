@@ -19,7 +19,11 @@ android {
     dataBinding.enabled true
 
     buildTypes {
+        debug{
+            buildConfigField 'String', 'SERVER_URL', '"https://www.googleapis.com/customsearch/v1?"'
+        }
         release {
+            buildConfigField 'String', 'SERVER_URL', '"https://www.googleapis.com/customsearch/v1?"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -53,4 +57,17 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 
+    implementation "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakCanary"
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$versions.leakCanary"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
+
+    api "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+    api "com.squareup.moshi:moshi:$versions.moshi"
+    api "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    api "com.squareup.okio:okio:$versions.okio"
+    api "com.squareup.okhttp3:okhttp:$versions.okhttp"
+    api "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
 }

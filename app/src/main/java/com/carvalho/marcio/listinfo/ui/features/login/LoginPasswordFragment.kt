@@ -2,9 +2,11 @@ package com.carvalho.marcio.listinfo.ui.features.login
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 
 import com.carvalho.marcio.listinfo.databinding.FragmentLogInPasswordBinding
 import com.carvalho.marcio.listinfo.ui.BaseFragment
@@ -16,7 +18,7 @@ class LoginPasswordFragment : BaseFragment() {
     private lateinit var binding: FragmentLogInPasswordBinding
     private lateinit var cpf: String
 
-    private val signInViewModel: LogInViewModel by viewModel()
+    private val logInViewModel: LogInViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,19 +40,28 @@ class LoginPasswordFragment : BaseFragment() {
             buttonGetIn.setOnClickListener {
                 if (validatePassword()) {
                     root.hideKeyboard()
+                    logInViewModel.logIn(
+                        cpf = cpf,
+                        password = inputPassword.text.toString()
+                    )
                 }
             }
             inputPassword.requestFocus()
         }
+        observeLiveData()
     }
 
-    private fun validatePassword() = false
-
-    private fun togglePasswordError(visible: Boolean) {
-        binding.textPasswordError.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+    private fun observeLiveData() {
+        logInViewModel.user.observe(this, Observer {
+            it?.let {
+                Log.d("LogIn response", "sucesso!")
+            }
+        })
     }
 
-    override fun getViewModel() = signInViewModel
+    private fun validatePassword() = true
+
+    override fun getViewModel() = logInViewModel
 
     override fun getBinding() = binding
 

@@ -15,7 +15,7 @@
                 app:exitAnim="@anim/slide_out"
                 app:popEnterAnim="@anim/slide_pop_out"
                 app:popExitAnim="@anim/slide_pop_in"
-                app:popUpTo="@+id/actionCpfToPassword" />
+                app:popUpTo="@+id/fragment_log_in_cpf" />
     </fragment>
 
     <fragment

@@ -1,7 +1,7 @@
 package com.carvalho.marcio.listinfo
 
 import android.app.Application
-import com.carvalho.marcio.listinfo.data.networkModule
+import com.carvalho.marcio.listinfo.di.networkModule
 import com.carvalho.marcio.listinfo.di.viewModelModule
 import org.koin.android.ext.android.startKoin
 

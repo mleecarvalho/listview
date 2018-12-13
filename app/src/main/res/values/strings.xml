@@ -4,9 +4,14 @@
     <string name="invalid_cpf_text">CPF inválido</string>
     <string name="next_button_label">Próximo</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="get_int_button">Entrar</string>
     <string name="password_text_error">Senha ou usuário inválido</string>
     <string name="password_title">Digite a senha</string>
+
+    <string name="error_connection">Não foi possível se conectar ao servidor</string>
+    <string name="error_unauthorized">Sessão expirada</string>
+    <string name="error_server">Não foi possível completar sua solicitação</string>
+    <string name="error_server_retry">Não foi possível completar sua solicitação. Tente novamente.</string>
+    <string name="succes_mgs">Sucesso!</string>
+
 </resources>
